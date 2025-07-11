@@ -9,8 +9,8 @@ enters letters when a number is expected._
 ## Contents
 
 `batting.py` - Calculating a player's batting average.
-`sweets.py` - Divide a bag of sweets fairly between friends.
 `student_groups` - Calculating the number of lab groups needed for a class of students.
+`sweets.py` - Divide a bag of sweets fairly between friends.
 `temperature.py` - Temperature scale conversion.
 `times.py` - Convert a number of minutes to hours and minutes.
 `weight.py` - Convert kilograms to stone.
