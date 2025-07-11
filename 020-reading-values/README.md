@@ -1,4 +1,4 @@
-# Basic Maths
+# Reading Values
 
 Most of these programs are from the _Basic Maths_ folder, but are modified to read their input
 values from the user.
