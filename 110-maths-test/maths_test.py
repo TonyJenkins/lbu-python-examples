@@ -41,7 +41,12 @@ def do_subtraction_question(avoid_negatives = conf.AVOID_NEGATIVE_RESULTS):
 
 
 def do_multiplication_question():
-    pass
+    term_1 = generate_random_term()
+    term_2 = generate_random_term()
+
+    answer = get_answer(f'{term_1} x {term_2} = ')
+
+    return answer == term_1 * term_2
 
 
 def do_division_question():
