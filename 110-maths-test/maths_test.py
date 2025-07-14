@@ -9,17 +9,35 @@ def generate_random_term(max_value = conf.MAX_VALUE):
     return randint(0, max_value)
 
 
+def get_answer(question_text):
+    while True:
+        try:
+            answer_entered = int(input(question_text))
+            return answer_entered
+        except ValueError:
+            print('Answer must be an integer!')
+
+
 def do_addition_question():
     term_1 = generate_random_term()
     term_2 = generate_random_term()
 
-    answer = int(input(f'{term_1} + {term_2} = '))
+    answer = get_answer(f'{term_1} + {term_2} = ')
 
     return answer == term_1 + term_2
 
 
-def do_subtraction_question():
-    pass
+def do_subtraction_question(avoid_negatives = conf.AVOID_NEGATIVE_RESULTS):
+    term_1 = generate_random_term()
+    term_2 = generate_random_term()
+
+    if avoid_negatives:
+        if term_1 < term_2:
+            term_1, term_2 = term_2, term_1
+
+        answer = get_answer(f'{term_1} - {term_2} = ')
+
+    return answer == term_1 - term_2
 
 
 def do_multiplication_question():
