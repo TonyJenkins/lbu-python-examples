@@ -15,12 +15,14 @@ def choose_secret_number():
             return secret
         
 
-def get_guess(number_of_guesses):
+def get_guess(number_of_guesses, already_guessed):
     while True:
         try:
             next_guess = int(input(f'Enter guess #{number_of_guesses + 1}: '))
             if next_guess < 0 or next_guess > 100:
                 print('Please guess numbers between 0 and 100!')
+            elif next_guess in already_guessed:
+                print('You already guessed that number!')
             else:
                 return next_guess
         except ValueError:
@@ -61,10 +63,12 @@ def play_game():
 
     secret_number = choose_secret_number()
     guesses_so_far = 0
+    numbers_guessed = []
 
     while True:
-        new_guess = get_guess(guesses_so_far)
+        new_guess = get_guess(guesses_so_far, numbers_guessed)
         guesses_so_far += 1
+        numbers_guessed.append(new_guess)
 
         print_game_status(secret_number, new_guess)
         
