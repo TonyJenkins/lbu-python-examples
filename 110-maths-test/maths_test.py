@@ -2,8 +2,9 @@
 
 
 from random import choice, randint
-import conf
 
+import conf
+from maths_test_exception import MathsTestConfigError
 
 def generate_random_term(max_value = conf.MAX_VALUE):
     return randint(0, max_value)
@@ -50,8 +51,12 @@ def do_multiplication_question():
 
 
 def do_division_question():
-    pass
+    term_1 = generate_random_term()
+    term_2 = randint(1, conf.MAX_DIVISION_FACTOR)
 
+    answer = get_answer(f'{term_1 * term_2} / {term_2} = ')
+
+    return answer == term_1
 
 
 def setup_test():
@@ -67,7 +72,7 @@ def setup_test():
         question_types.append('/')
 
     if not question_types:
-        raise ValueError('No questions types configured')
+        raise MathsTestConfigError('No question types configured')
     
     return question_types
 
@@ -95,6 +100,9 @@ def do_the_maths_test(question_types_configured):
 
 
 if __name__ == '__main__':
-    question_types = setup_test()
-    do_the_maths_test(question_types)
+    try:
+        question_types = setup_test()
+        do_the_maths_test(question_types)
+    except MathsTestConfigError:
+        print('Error: Problem in the config. Most likely, no question types configured.')
 
