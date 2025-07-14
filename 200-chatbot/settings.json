@@ -1,0 +1,62 @@
+{
+  "OperatorNames": [
+    "Agnes",
+    "Brian",
+    "Cathy",
+    "David",
+    "Eva",
+    "Frank",
+    "Gina",
+    "Harry",
+    "Irene",
+    "John",
+    "Kathy",
+    "Liam",
+    "Mia",
+    "Nina",
+    "Oscar",
+    "Paul",
+    "Quinn",
+    "Rita",
+    "Sam"
+  ],
+
+  "DefaultAnswers": [
+        "Yes",
+        "No",
+        "I see, {name}. That must be troubling.",
+        "Can you explain that a little more?",
+        "I can see the issue. Could you expand slightly?",
+        "I'm sorry, I don't understand. Could you explain further?",
+        "I'm sorry, I don't have that information. Would you like me to look it up?",
+        "Hmm. Let me see, {name}.",
+        "Please wait a moment while I check.",
+        "I'm not sure. Would you like me to find out?",
+        "I'm not sure. Would you like me to look it up?",
+        "I'm not sure. Would you like me to check?"
+    ],
+
+  "ExitWords": [
+        "bye",
+        "exit",
+        "quit",
+        "q",
+        "help"
+  ],
+
+  "Responses" : [
+    {
+      "breakfast": "The cafeteria in the Student Union Building is excellent for breakfast.",
+      "bus": "The bus stop is located at the side of James Graham Building. There is also a free bus to City Campus.",
+      "coffee": "Tiki in the Student Union can provide for all your coffee needs.",
+      "dog": "No problem, {name}! Dogs are welcome on campus, but not in the Library.",
+      "library": "The Library is located in the James Graham Building. It is open from 8am to 10pm.",
+      "parking": "There is a car park at the front of the James Graham Building. It is free for the first 2 hours.",
+      "wifi": "We have excellent WiFi coverage across the campus.",
+      "gym": "The gym is located in the Student Union Building. It is open from 6am to 10pm.",
+      "food": "The cafeteria in the Student Union Building is excellent for breakfast.",
+      "study": "The Library is a great place to study. It is open from 8am to 10pm.",
+      "computer": "There are computers available in the Library and the Student Union Building."
+    }
+  ]
+}
