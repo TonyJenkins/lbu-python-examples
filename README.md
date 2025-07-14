@@ -6,6 +6,10 @@ They are arranged in directories by topic. The numbers in the directory names
 indicate (very roughly) the order in which they could be read. So "higher numbers"
 may well use additional Python features.
 
+Directories with names starting with `0` contain simple programs showing basic programming
+concepts. Directories starting `1` contain complete programs that use a range of
+programming techniques. And those with names starting `2` contain more complex projects.
+
 The should be an index file in each directory, which gives a brief idea of what each
 program does.
 
