@@ -35,7 +35,7 @@ def do_subtraction_question(avoid_negatives = conf.AVOID_NEGATIVE_RESULTS):
         if term_1 < term_2:
             term_1, term_2 = term_2, term_1
 
-        answer = get_answer(f'{term_1} - {term_2} = ')
+    answer = get_answer(f'{term_1} - {term_2} = ')
 
     return answer == term_1 - term_2
 
