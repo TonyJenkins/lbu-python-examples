@@ -10,25 +10,25 @@ def generate_random_term(max_value = conf.MAX_VALUE):
     return randint(0, max_value)
 
 
-def get_answer(question_text):
+def get_answer(question_number, term_1, term_2, operation):
     while True:
         try:
-            answer_entered = int(input(question_text))
-            return answer_entered
+            prompt_text = f'Question {question_number + 1:2}: {term_1} {operation} {term_2} = '
+            return int(input(prompt_text))
         except ValueError:
             print('Answer must be an integer!')
 
 
-def do_addition_question():
+def do_addition_question(question_number):
     term_1 = generate_random_term()
     term_2 = generate_random_term()
 
-    answer = get_answer(f'{term_1} + {term_2} = ')
+    answer = get_answer(question_number, term_1, term_2, '+')
 
     return answer == term_1 + term_2
 
 
-def do_subtraction_question(avoid_negatives = conf.AVOID_NEGATIVE_RESULTS):
+def do_subtraction_question(question_number, avoid_negatives = conf.AVOID_NEGATIVE_RESULTS):
     term_1 = generate_random_term()
     term_2 = generate_random_term()
 
@@ -36,25 +36,25 @@ def do_subtraction_question(avoid_negatives = conf.AVOID_NEGATIVE_RESULTS):
         if term_1 < term_2:
             term_1, term_2 = term_2, term_1
 
-    answer = get_answer(f'{term_1} - {term_2} = ')
+    answer = get_answer(question_number, term_1, term_2, '-')
 
     return answer == term_1 - term_2
 
 
-def do_multiplication_question():
+def do_multiplication_question(question_number):
     term_1 = generate_random_term()
     term_2 = generate_random_term()
 
-    answer = get_answer(f'{term_1} x {term_2} = ')
+    answer = get_answer(question_number, term_1, term_2, 'x')
 
     return answer == term_1 * term_2
 
 
-def do_division_question():
+def do_division_question(question_number):
     term_1 = generate_random_term()
     term_2 = randint(1, conf.MAX_DIVISION_FACTOR)
 
-    answer = get_answer(f'{term_1 * term_2} / {term_2} = ')
+    answer = get_answer(question_number, term_1, term_2, '/')
 
     return answer == term_1
 
@@ -77,26 +77,33 @@ def setup_test():
     return question_types
 
 
+def print_results(number_correct, number_answered):
+    print()
+    print('Test Complete!')
+    print()
+    print(f'You scored {number_correct / number_answered * 100:.2f}%.')
+
+
 def do_the_maths_test(question_types_configured):
 
     correct_answers = 0
 
-    for question in range(conf.QUESTIONS):
+    for question_number in range(conf.QUESTIONS):
         this_question = choice(question_types_configured)
 
         match this_question:
             case '+':
-                result = do_addition_question()
+                result = do_addition_question(question_number)
             case '-':
-                result = do_subtraction_question()
+                result = do_subtraction_question(question_number)
             case '*':
-                result = do_multiplication_question()
+                result = do_multiplication_question(question_number)
             case '/':
-                result = do_division_question()
+                result = do_division_question(question_number)
 
         correct_answers += 1 if result else 0
 
-    print(correct_answers)
+    print_results(correct_answers, conf.QUESTIONS)
 
 
 if __name__ == '__main__':
