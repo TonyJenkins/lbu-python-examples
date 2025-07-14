@@ -14,4 +14,3 @@ code can be kept away from the main "happy path" of the program.
 `times.py` - Convert a number of minutes to hours and minutes, must be positive, and numeric.
 `weight.py` - Convert kilograms to stone, must be non-zero, and numeric.
 
-[grades.py](Click here for grades.py)
