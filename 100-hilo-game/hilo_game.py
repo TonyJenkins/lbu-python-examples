@@ -3,10 +3,15 @@
 from random import randint
 
 
+CHEATING = True
+
+
 def choose_secret_number():
     while True:
         secret = randint(0, 100)
         if secret not in [25, 50, 75]:
+            if CHEATING:
+                print(f'DEBUG: Secret number is {secret} DEBUG')
             return secret
         
 
@@ -27,30 +32,45 @@ def print_game_status(secret, guess):
         print('My number is higher than your guess.')
     elif secret < guess:
         print('My number is lower than your guess.')
-    else:
-        print('You guessed the number!')
 
 
-def game_over(secret, guess):
-    return secret == guess
+def game_over(secret, guess, guesses_taken):
+    return (secret == guess) or guesses_taken == 10
 
 
-def play_game():
+def print_banner():
     print('Amazing Hi-Lo Game')
     print('==================')
     print()
+
+
+def print_endgame(secret, last_guess, guesses_taken):
+    print()
+    print('Game Over!')
+
+    if secret != last_guess:
+        print(f'You lose! The secret number was {secret}!')
+    elif secret == last_guess:
+        print('You win! Well done!')
+
+    print()
+
+
+def play_game():
+    print_banner()
 
     secret_number = choose_secret_number()
     guesses_so_far = 0
 
     while True:
         new_guess = get_guess(guesses_so_far)
+        guesses_so_far += 1
 
         print_game_status(secret_number, new_guess)
-        if game_over(secret_number, new_guess):
+        
+        if game_over(secret_number, new_guess, guesses_so_far):
+            print_endgame(secret_number, new_guess, guesses_so_far)
             break
-        else:
-            guesses_so_far += 1
 
 
 if __name__ == '__main__':
