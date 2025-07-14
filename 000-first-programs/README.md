@@ -8,5 +8,5 @@ is stored in a variable, and then displayed back in the message._
 
 ## Contents
 
-`hello_world.py` - The canonical "Hello, World!" program.
-`hello_name.py` - A program that greets the user by name, using an _f-string_.
+- `hello_world.py` - The canonical "Hello, World!" program.
+- `hello_name.py` - A program that greets the user by name, using an _f-string_.
