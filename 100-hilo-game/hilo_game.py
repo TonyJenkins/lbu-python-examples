@@ -3,7 +3,9 @@
 from random import randint
 
 
-CHEATING = True
+CHEATING = False
+
+MAX_GUESSES = 10
 
 
 def choose_secret_number():
@@ -36,8 +38,8 @@ def print_game_status(secret, guess):
         print('My number is lower than your guess.')
 
 
-def game_over(secret, guess, guesses_taken):
-    return (secret == guess) or guesses_taken == 10
+def game_over(secret, guess, guesses_taken, max_guesses = 10):
+    return (secret == guess) or guesses_taken == max_guesses
 
 
 def print_banner():
@@ -72,7 +74,7 @@ def play_game():
 
         print_game_status(secret_number, new_guess)
         
-        if game_over(secret_number, new_guess, guesses_so_far):
+        if game_over(secret_number, new_guess, guesses_so_far, MAX_GUESSES):
             print_endgame(secret_number, new_guess, guesses_so_far)
             break
 
