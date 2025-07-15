@@ -11,7 +11,7 @@ gained from using something else.
 
 Dictionaries:
 
-- `capitals.py` - A very simple quiz game.
+- `capitals.py` - A very simple quiz program.
 - `class_list.py` - Read student names and grades, and print class list in grade order.
 - `file_types.py` - List the files in the current folder and their assumed type (based on name).
 - `nato.py` - Render a string in the NATO phonetic alphabet.
