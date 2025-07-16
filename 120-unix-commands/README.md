@@ -20,6 +20,6 @@ the standard Python file operations where possible.
 - `grep.py` - Find lines in a file that contain a given pattern.
 - `spell.py` - A very basic spell checker.
 
-_Note: The spell checker uses it own dictionary, located in the same folder. It would be
-better to use the system dictionary if that existed. This could probably be coded better,
-to be honest._
+_Note: The spell checker uses its own dictionary, located in the same folder. It would be
+better to use the system dictionary if that existed, which it would on Linux or Mac,
+but probably not on Windows. This could probably be coded better, to be honest._
