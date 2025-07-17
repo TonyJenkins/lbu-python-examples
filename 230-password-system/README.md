@@ -13,3 +13,6 @@ which is the point!). Why not try?
 The commands are (hopefully) self-explanatory. But note that a lot
 of the common code is factored out into a module (keep it DRY).
 
+_Note: Sample data is generated using the `xkcdpass` module, which
+is a much better password strategy than the usual, pointless, 
+"complexity" rules._
