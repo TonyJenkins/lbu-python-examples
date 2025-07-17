@@ -6,7 +6,7 @@ These can be implemented using the `shutil` or `os` modules from the Standard
 Library, but that is no fun. The versions here are written with
 the standard Python file operations where possible.
 
-# Contents
+## Contents
 
 - `cat.py` - Display a file on the screen.
 - `cp.py` - Copy a file to another.
