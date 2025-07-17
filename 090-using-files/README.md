@@ -30,3 +30,9 @@ Caesar Cypher, for example._
 In addition there is a (somewhat crufty) program to generate test data files, and some
 plain text files for testing.
 
+## Requirements
+
+`profanity.py` requires the `nltk` module, which will need to be installed. It also creates a folder
+of module data (which will be downloaded on the first run). 
+
+(This is used really to save coding the splitting of words as in `word_count.py` all over again.)
