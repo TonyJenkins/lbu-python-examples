@@ -1,0 +1,15 @@
+Italy,10,France,50
+England,6,Scotland,11
+Wales,21,Ireland,16
+England,41,Italy,18
+Scotland,24,Wales,25
+Ireland,13,France,15
+Italy,10,Ireland,48
+Wales,40,England,24
+Italy,7,Wales,48
+England,23,France,20
+Scotland,24,Ireland,27
+Scotland,52,Italy,10
+Ireland,32,England,18
+France,32,Wales,30
+France,23,Scotland,27

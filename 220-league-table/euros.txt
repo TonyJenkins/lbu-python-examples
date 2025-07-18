@@ -1,0 +1,6 @@
+England,1,Austria,0
+Norway,4,Northern Ireland,1
+Austria,2,Northern Ireland,0
+England,8,Norway,0
+Northern Ireland,0,England,5
+Austria,1,Norway,0
