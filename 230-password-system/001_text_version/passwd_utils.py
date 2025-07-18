@@ -22,7 +22,7 @@ def encrypt(password):
     return encode(password, 'rot13')
 
 
-def check_password(encrypted_password, password):
+def validate_password(encrypted_password, password):
     return encrypt(password) == encrypted_password
 
 
@@ -30,8 +30,8 @@ def read_password_file():
 
     users = []
 
-    with open(PASSWORD_FILE, 'r') as p:
-        for line in p:
+    with open(PASSWORD_FILE, 'r') as pf:
+        for line in pf:
             username, real_name, password = line.strip().split(':')
             users.append((username, real_name, password,))
 
@@ -40,17 +40,17 @@ def read_password_file():
 
 def write_password_file(user_list):
 
-    with open(PASSWORD_FILE, 'w') as p:
+    with open(PASSWORD_FILE, 'w') as pf:
         for user in user_list:
-            p.write(f'{user[0]}:{user[1]}:{user[2]}\n')
+            pf.write(f'{':'.join(user)}' + '\n')
 
 
 def user_exists(username):
     current_users = read_password_file()
 
-    for line in current_users:
-        name, real_name, password = line
-        if name == username:
+    for user in current_users:
+        id, _, __ = user
+        if id == username:
             return True
 
     return False
@@ -58,15 +58,15 @@ def user_exists(username):
 
 def add_user_to_file(user_info):
 
-    name, real_name, raw_password = user_info
+    id, real_name, raw_password = user_info
 
-    if user_exists(name):
+    if user_exists(id):
         raise UserExistsError('User to add already exists')
 
-    password = encrypt(raw_password)
+    encrypted_password = encrypt(raw_password)
 
     current_users = read_password_file()
-    current_users.append((name, real_name, password))
+    current_users.append((id, real_name, encrypted_password))
 
     write_password_file(current_users)
 
@@ -91,7 +91,8 @@ def check_user(username, password):
     current_users = read_password_file()
 
     for user in current_users:
-        if user[0] == username and check_password(user[2], password):
+        check_username, _, check_password = user
+        if check_username == username and validate_password(check_password, password):
             return True
 
     return False
@@ -107,8 +108,9 @@ def change_password(username, password):
     new_users = []
 
     for user in current_users:
-        if user[0] == username:
-            new_users.append((username, user[1], encrypt(password),))
+        id, real_name, _ = user
+        if id == username:
+            new_users.append((username, real_name, encrypt(password),))
         else:
             new_users.append(user)
 

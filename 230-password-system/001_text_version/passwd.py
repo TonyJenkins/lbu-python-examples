@@ -6,8 +6,7 @@ from getpass import getpass
 from passwd_utils import change_password, check_user
 
 
-if __name__ == '__main__':
-
+def change_a_password():
     user = input('User:             ')
     password = getpass('Current Password: ')
 
@@ -21,4 +20,9 @@ if __name__ == '__main__':
         else:
             print('New passwords do not match.')
     else:
-        print('Password incorrect.')
+        print('User details incorrect. Try again.')
+
+
+if __name__ == '__main__':
+    change_a_password()
+

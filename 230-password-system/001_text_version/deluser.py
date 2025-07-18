@@ -5,12 +5,18 @@ from passwd_utils import delete_user
 from passwd_utils import UserDeleteError
 
 
-if __name__ == '__main__':
-
+def delete_a_user():
     user = input('Enter username: ')
 
-    try:
-        delete_user(user)
-        print('User Deleted.')
-    except UserDeleteError:
-        print('Cannot delete. Most likely username does not exist.')
+    if not user:
+        print('Cannot delete a user with no name.')
+    else:
+        try:
+            delete_user(user)
+            print('User Deleted.')
+        except UserDeleteError:
+            print('Cannot delete. Most likely username does not exist.')
+
+
+if __name__ == '__main__':
+    delete_a_user()
