@@ -20,6 +20,8 @@ some of these examples._
 Using determinate (`for`) loops:
 
 - `countdown.py` - Display an (exciting) space rocket countdown.
+- `fizz_buzz.py` - (See https://en.wikipedia.org/wiki/Fizz_buzz) A counting game where numbers divisible by 3 are replaced
+by `Fizz` and by 5 with `Buzz`. Displays the first 101 numbers.
 - `grade_average.py` - Determine a student's average grade based on _five_ entered marks. (No error checking.)
 - `grade_passes.py` - Count passed modules, where a student needs to pass 5 of 6, and display the result. (No error checking.)
 - `password_check.py` - Check whether a password contains an uppercase letter, lowercase letter, special character, and digit.
