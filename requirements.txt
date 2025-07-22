@@ -1,4 +1,5 @@
 click==8.2.1
+colorama==0.4.6
 joblib==1.5.1
 names==0.3.0
 nltk==3.9.1
