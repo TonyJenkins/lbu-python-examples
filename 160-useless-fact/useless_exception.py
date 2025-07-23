@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-class UselessException(Exception):
+class UselessError(Exception):
 
     def __init__(self, message):
         self.message = message
