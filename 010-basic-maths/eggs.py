@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 if __name__ == "__main__":
-
     number_of_eggs = 157
 
     boxes_of_twelve = number_of_eggs // 12
