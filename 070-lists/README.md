@@ -1,9 +1,15 @@
 # Lists
 
 Lists are a _compund data type_. They contain multiple values. Usually, these are values
-of the same type (you can even have a list of lists).
+of the same type (you can even have a list of lists). For collections of values of
+different types (for example  representing some customer details), see `tuples` in the
+next section.
 
-The programs here illustrate some uses of lists. (Some are refectoring of previous example programs.)
+The programs here illustrate some uses of lists. (Some are refactoring of previous example 
+programs.) Lists are so common that many of the longer examples use _a lot_ of lists.
+
+Many of these programs also use modules from the Standard Library, for example to read
+the names of the files in the current folder.
 
 ## Contents
 

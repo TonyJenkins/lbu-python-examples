@@ -20,25 +20,25 @@ def clear_queue(current_queue):
 
 def print_queue(current_queue):
     if len(current_queue) == 0:
-        print('Queue is empty.')
+        print("Queue is empty.")
     else:
         for pos in range(len(current_queue)):
-            print(f'{pos:3} {current_queue[pos]}')
+            print(f"{pos:3} {current_queue[pos]}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     queue = []
 
-    join_queue(queue, 'Arnold')
-    join_queue(queue, 'Bertha')
-    join_queue(queue, 'Colin')
-    join_queue(queue, 'Debra')
+    join_queue(queue, "Arnold")
+    join_queue(queue, "Bertha")
+    join_queue(queue, "Colin")
+    join_queue(queue, "Debra")
 
     print_queue(queue)
     print()
 
     leaver, queue = leave_queue(queue)
-    print(f'{leaver} left the queue.')
+    print(f"{leaver} left the queue.")
 
     print_queue(queue)
     print()
@@ -51,5 +51,4 @@ if __name__ == '__main__':
     try:
         leaver, queue = leave_queue(queue)
     except IndexError:
-        print('Cannot leave an empty queue.')
-        
+        print("Cannot leave an empty queue.")
