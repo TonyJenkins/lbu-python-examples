@@ -1,23 +1,31 @@
 #!/usr/bin/env python3
 
-
 import sys
 
 from caesar import rot_string
 
 
 def replace_newlines_with_spaces(s):
-    s.replace('\n', ' ')
+    s.replace("\n", " ")
     return s
 
 
 def remove_punctuation(s):
-    return ''.join([c for c in s if c.isalpha() or c.isspace()])
+    return "".join([c for c in s if c.isalpha() or c.isspace()])
 
 
 def check_for_the_common_words(s, rotation_to_try):
-    common_words = ['the', 'be', 'to', 'of', 'and', 'a', 'in',
-                    'that', 'have',]
+    common_words = [
+        "the",
+        "be",
+        "to",
+        "of",
+        "and",
+        "a",
+        "in",
+        "that",
+        "have",
+    ]
 
     s = s.lower()
     s = replace_newlines_with_spaces(s)
@@ -37,8 +45,7 @@ def check_for_the_common_words(s, rotation_to_try):
 
 
 def crack_the_code(rotted_file):
-
-    with open(rotted_file, 'r') as rf:
+    with open(rotted_file, "r") as rf:
         rotated_contents = rf.read()
 
         for possible_rotation in range(1, 26):
@@ -47,10 +54,8 @@ def crack_the_code(rotted_file):
                 break
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         crack_the_code(sys.argv[1])
-    except IndexError:
-        print(f'Usage: {sys.argv[0]} <rotated_file>')
-    except FileNotFoundError:
-        print(f'No such file or directory: {sys.argv[1]}')
+    except (IndexError, FileNotFoundError,):
+        print(f"Usage: {sys.argv[0]} <file to crack>")
