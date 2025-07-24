@@ -14,5 +14,5 @@ INCLUDE_DIVISION = False
 AVOID_NEGATIVE_RESULTS = False
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
