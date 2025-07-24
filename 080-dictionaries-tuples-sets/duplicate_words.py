@@ -2,7 +2,7 @@
 
 
 def clean_sentence(sentence):
-    return ''.join([c for c in sentence.lower().strip() if c.isalpha() or c == ' '])
+    return "".join([c for c in sentence.lower().strip() if c.isalpha() or c == " "])
 
 
 def find_duplicate_words(sentence):
@@ -14,6 +14,6 @@ def find_duplicate_words(sentence):
     return [c for c in counts if counts[c] == max_count]
 
 
-if __name__ == '__main__':
-    test_sentence = 'The key of my aunt is key to the problem of my uncle.'
+if __name__ == "__main__":
+    test_sentence = "The key of my aunt is key to the problem of my uncle."
     print(find_duplicate_words(clean_sentence(test_sentence)))
