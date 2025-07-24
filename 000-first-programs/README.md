@@ -13,7 +13,6 @@ very basic maths.
 
 ## Contents
 
-- `hello_world.py` - The canonical "Hello, World!" program.
-- `hello_name.py` - A program that greets the user by name, using an _f-string_.
-
-- `hello_age.py` - A possible third program, about birthdays.
+1. `hello_world.py` - The canonical "Hello, World!" program.
+2. `hello_name.py` - A program that greets the user by name, using an _f-string_.
+3. `hello_age.py` - A possible third program, about birthdays.
