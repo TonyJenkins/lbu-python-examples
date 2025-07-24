@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 import names
 from random import random, randint
 from xkcdpass import xkcd_password as xp
@@ -13,23 +12,23 @@ NUMBER_OF_USERS = 32
 
 
 def generate_full_name():
-
     number_of_forenames = randint(1, 3)
-    gender = 'male' if random() > 0.5 else 'female'
+    gender = "male" if random() > 0.5 else "female"
 
-    name = ' '.join([names.get_first_name(gender) for count in range(number_of_forenames)])
-    name += ' ' + names.get_last_name()
+    name = " ".join(
+        [names.get_first_name(gender) for count in range(number_of_forenames)]
+    )
+    name += " " + names.get_last_name()
 
     return name
 
 
 def lowercase_initials(full_name):
-    return ''.join([c for c in full_name if c.isupper()]).lower()
+    return "".join([c for c in full_name if c.isupper()]).lower()
 
 
 def generate_username(full_name):
-
-    first_name, last_name = full_name.split(' ')[0], full_name.split(' ')[-1]
+    first_name, last_name = full_name.split(" ")[0], full_name.split(" ")[-1]
 
     if random() < 0.33:
         return lowercase_initials(full_name)
@@ -40,15 +39,14 @@ def generate_username(full_name):
 
 
 def generate_password():
-
     wordfile = xp.locate_wordfile()
     words = xp.generate_wordlist(wordfile=wordfile, min_length=5, max_length=8)
 
-    return xp.generate_xkcdpassword(words, 3, delimiter='')
+    return xp.generate_xkcdpassword(words, 3, delimiter="")
 
 
 def generate_a_dummy_password_file(passwd_txt=PASSWORD_FILE):
-    with open(passwd_txt, 'w') as of:
+    with open(passwd_txt, "w") as of:
         for line in range(NUMBER_OF_USERS):
             full_name = generate_full_name()
             username = generate_username(full_name)
@@ -58,6 +56,6 @@ def generate_a_dummy_password_file(passwd_txt=PASSWORD_FILE):
             except:
                 pass
 
-if __name__ == '__main__':
-    generate_a_dummy_password_file()
 
+if __name__ == "__main__":
+    generate_a_dummy_password_file()

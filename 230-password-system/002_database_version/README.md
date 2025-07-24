@@ -18,8 +18,6 @@ but that's about it.
 Oh, and some users can be admins. And because this is a database, the
 users have unique numbers added. But that really is it.
 
-There is an `alusers.py` script here, to provide a convenient way to see
+There is an `allusers.py` script here, to provide a convenient way to see
 the current state of play. (In the text-based solution we could just
 look in the text file.)
-
-
