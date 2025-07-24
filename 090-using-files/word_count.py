@@ -9,11 +9,11 @@ def read_file(filename):
 
 
 def clean_string(s):
-    return ''.join([c for c in s if c.isalpha() or c.isspace()])
+    return "".join([c for c in s if c.isalpha() or c.isspace()])
 
 
 def join_lines(s):
-    return s.replace('\n', ' ')
+    return s.replace("\n", " ")
 
 
 def build_word_list(string_of_words):
@@ -24,15 +24,17 @@ def print_top_words(word_list):
     from collections import Counter
 
     word_frequencies = Counter(word_list)
-    for word, frequency in sorted(word_frequencies.most_common(10), key=lambda x: x[1], reverse=True):
-        print(f'{word}: {frequency}')
+    for word, frequency in sorted(
+        word_frequencies.most_common(10), key=lambda x: x[1], reverse=True
+    ):
+        print(f"{word}: {frequency}")
 
 
 def do_the_word_count():
     try:
         raw_file = read_file(sys.argv[1])
     except IndexError:
-        print(f'{sys.argv[0]}: Usage: python3 word_count.py <file>')
+        print(f"{sys.argv[0]}: Usage: python3 word_count.py <file>")
     except FileNotFoundError:
         print(f'{sys.argv[0]}: Cannot open "{sys.argv[1]}"')
     else:
@@ -41,5 +43,5 @@ def do_the_word_count():
         print_top_words(word_list)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     do_the_word_count()

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 import sys
 
 
@@ -18,21 +17,24 @@ def rot_character(c, rotation=13):
 
 
 def rot_string(s, rotation=13):
-    return ''.join([rot_character(c, rotation) for c in s])
+    return "".join([rot_character(c, rotation) for c in s])
 
 
-if __name__ == '__main__':
+def rotate_a_file(filename, rotation=13):
+    with open(filename, "r") as infile:
+        file_contents = infile.read()
 
+    with open(filename, "w") as rotfile:
+        rotfile.write(rot_string(file_contents, rotation))
+
+
+if __name__ == "__main__":
     try:
-        with open(sys.argv[1], 'r') as infile:
-            file_content = infile.read()
-            rotation = int(sys.argv[2])
-    except (IndexError, ValueError,):
-        print(f'Usage: python3 {sys.argv[0]} <file to ROT> <rotation>')
+        rotate_a_file(sys.argv[1], int(sys.argv[2]))
+    except (
+        IndexError,
+        ValueError,
+    ):
+        print(f"Usage: python3 {sys.argv[0]} <file to ROT> <rotation>")
     except FileNotFoundError:
         print(f'{sys.argv[0]}: Cannot open "{sys.argv[1]}" Sorry about that.')
-
-    else:
-        with open(sys.argv[1], 'w') as rotfile:
-            rotfile.write(rot_string(file_content, rotation))
-            

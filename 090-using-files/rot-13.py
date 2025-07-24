@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 import sys
 
 
@@ -18,20 +17,21 @@ def rot_13_character(c):
 
 
 def rot_13_string(s):
-    return ''.join([rot_13_character(c) for c in s])
+    return "".join([rot_13_character(c) for c in s])
 
 
-if __name__ == '__main__':
+def rot_13_file(filename):
+    with open(filename, "r") as infile:
+        file_content = infile.read()
 
+    with open(filename, "w") as outfile:
+        outfile.write(rot_13_string(file_content))
+
+
+if __name__ == "__main__":
     try:
-        with open(sys.argv[1], 'r') as infile:
-            file_content = infile.read()
+        rot_13_file(sys.argv[1])
     except IndexError:
-        print(f'Usage: python3 {sys.argv[0]} <file to ROT>')
+        print(f"Usage: python3 {sys.argv[0]} <file to ROT>")
     except FileNotFoundError:
         print(f'{sys.argv[0]}: Cannot open "{sys.argv[1]}" Sorry about that.')
-
-    else:
-        with open(sys.argv[1], 'w') as rotfile:
-            rotfile.write(rot_13_string(file_content))
-            
