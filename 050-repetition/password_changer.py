@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 
-if __name__ == '__main__':
-
+if __name__ == "__main__":
     while True:
 
-        possible_password = input('Enter new password: ')
+        possible_password = input("Enter new password: ")
 
-        has_uppercase = haslowercase = has_digit = has_special = False
+        has_uppercase = has_lowercase = has_digit = has_special = False
 
         for character in possible_password:
             if character.isupper():
@@ -19,9 +18,9 @@ if __name__ == '__main__':
                 has_special = True
 
         if has_uppercase and has_lowercase and has_digit and has_special:
-            print('Password is complex!')
+            print("Password is complex!")
             break
         else:
-            print('Password might be easy to guess. Change it!')
+            print("Password might be easy to guess. Try again!")
             print()
-        
+            continue
