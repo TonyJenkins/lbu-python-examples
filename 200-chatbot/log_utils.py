@@ -7,6 +7,5 @@ def generate_log_file_name_from_time():
     return f'{datetime.now().strftime("%Y%m%d-%H%M%S")}.log'
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
-
