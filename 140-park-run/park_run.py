@@ -1,11 +1,7 @@
 #!/usr/bin/env python3
 
 
-from statistics import mean
-
-
 def time_as_string(seconds):
-
     mins = int(seconds // 60)
     secs = round(seconds % 60, 1)
 
@@ -14,49 +10,49 @@ def time_as_string(seconds):
 
 def parse_time_record(line_from_the_stream):
     try:
-        singlet_number, time = line_from_the_stream.split('::')
+        singlet_number, time = line_from_the_stream.split("::")
 
         if len(singlet_number) < 1:
-            raise ValueError('Missing singlet number')
-        
+            raise ValueError("Missing singlet number")
+
         return singlet_number, int(time)
     except ValueError:
-        raise ValueError('Error in data. Probably cannot convert time')
-    
+        raise ValueError("Error in data. Probably cannot convert time")
+
 
 def print_headers():
     print()
-    print('Park Run Timer')
-    print('~~~~~~~~~~~~~~')
+    print("Park Run Timer")
+    print("~~~~~~~~~~~~~~")
     print()
-    print('Let\'s go!')
+    print("Let's go!")
     print()
 
 
 def print_results(all_times, top_runner):
+    from statistics import mean
+
     if all_times:
         print()
-        print(f'Total Runners: {len(all_times)}')
-        print(f'Average Time:  {time_as_string(mean(all_times))}')
-        print(f'Fastest Time:  {time_as_string(min(all_times))}')
-        print(f'Slowest Time:  {time_as_string(max(all_times))}')
+        print(f"Total Runners: {len(all_times)}")
+        print(f"Average Time:  {time_as_string(mean(all_times))}")
+        print(f"Fastest Time:  {time_as_string(min(all_times))}")
+        print(f"Slowest Time:  {time_as_string(max(all_times))}")
         print()
-        print(f'Best Time Here: Runner #{top_runner}')
+        print(f"Best Time Here: Runner #{top_runner}")
         print()
     else:
-        print('No data found. Nothing to do. What a pity.')
+        print("No data found. Nothing to do. What a pity.")
 
 
 def process_the_park_run():
-
     times = []
-    top_runner = ''
+    top_runner = ""
 
     while True:
+        next_line = input("> ")
 
-        next_line = input('> ')
-
-        if next_line == 'END':
+        if next_line == "END":
             print_results(times, top_runner)
             break
         else:
@@ -71,8 +67,8 @@ def process_the_park_run():
                 times.append(time)
 
             except ValueError:
-                print('Error in data stream. Ignoring. Carry on.')
+                print("Error in data stream. Ignoring. Carry on.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     process_the_park_run()
