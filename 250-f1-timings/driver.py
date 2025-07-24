@@ -38,5 +38,5 @@ class Driver:
         return self.fastest_lap_time < other.fastest_lap_time
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

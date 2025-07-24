@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 import sys
 
 from conf import DRIVER_FILE, DEFAULT_LAP_TIMES_FILE
@@ -10,9 +9,9 @@ from driver import Driver
 def create_driver_list(driver_file=DRIVER_FILE):
     driver_list = []
 
-    with open(driver_file, 'r') as df:
+    with open(driver_file, "r") as df:
         for driver in df:
-            number, code, name, team = driver.strip().split(',')
+            number, code, name, team = driver.strip().split(",")
             driver_list.append(Driver(number, code, name, team))
 
     return driver_list
@@ -26,9 +25,9 @@ def record_a_lap(drivers, code, lap_time):
 
 
 def process_lap_times(drivers, lap_times_file=DEFAULT_LAP_TIMES_FILE):
-    with open(lap_times_file, 'r') as lap_times:
+    with open(lap_times_file, "r") as lap_times:
         for lap_time in lap_times:
-            code, time = lap_time.strip().split(',')
+            code, time = lap_time.strip().split(",")
             record_a_lap(drivers, code, float(time))
 
 
@@ -37,12 +36,26 @@ def print_leaderboard(drivers):
 
     drivers.sort()
 
-    leaderboard = [('#', 'Time', '', 'Driver', 'Team'),]
+    leaderboard = [
+        ("#", "Time", "", "Driver", "Team"),
+    ]
 
     for driver in drivers:
-        leaderboard.append((driver.number, driver.fastest_lap_time, driver.code, driver.name, driver.team))
+        leaderboard.append(
+            (
+                driver.number,
+                driver.fastest_lap_time,
+                driver.code,
+                driver.name,
+                driver.team,
+            )
+        )
 
-    print(tabulate.tabulate(leaderboard, tablefmt='fancy_grid', floatfmt='.3f', headers='firstrow'))
+    print(
+        tabulate.tabulate(
+            leaderboard, tablefmt="fancy_grid", floatfmt=".3f", headers="firstrow"
+        )
+    )
 
 
 def run_qualifying(lap_times_file=DEFAULT_LAP_TIMES_FILE):
@@ -51,7 +64,7 @@ def run_qualifying(lap_times_file=DEFAULT_LAP_TIMES_FILE):
     print_leaderboard(drivers)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         run_qualifying(sys.argv[1])
     except IndexError:
