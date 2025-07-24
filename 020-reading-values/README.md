@@ -4,11 +4,14 @@ Most of these programs are from the _Basic Maths_ folder, but are modified to re
 values from the user.
 
 _There is no error checking in these programs, so they will crash if, for example, the users
-enters letters when a number is expected._
+enters letters when a number is expected. They also do not check the input values for "sanity", so,
+for example, negative numbers are allowed where this makes no sense._
 
 ## Contents
 
 - `batting.py` - Calculating a player's batting average.
+- `pizza_area.py` - How much pizza do you really get?
+- `speed.py` - Calculate average speed from distance and time.
 - `student_groups` - Calculating the number of lab groups needed for a class of students.
 - `sweets.py` - Divide a bag of sweets fairly between friends.
 - `temperature.py` - Temperature scale conversion.
