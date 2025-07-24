@@ -18,4 +18,4 @@ programs. Maybe that's true?_
 
 The programs are provided "as is" and without any warranty. They are not intended to be production
 quality code, but rather to illustrate various Python features and techniques. Some of them may
-well be borked, or may omit error hendling for clarity. Caveat emptor!
+well be borked, or may omit error handling for clarity. Caveat emptor!
