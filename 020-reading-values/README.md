@@ -7,6 +7,9 @@ _There is no error checking in these programs, so they will crash if, for exampl
 enters letters when a number is expected. They also do not check the input values for "sanity", so,
 for example, negative numbers are allowed where this makes no sense._
 
+In other words, these programs all follow the "Happy Path", where it is assumed that all
+will be well.
+
 ## Contents
 
 - `batting.py` - Calculating a player's batting average.
