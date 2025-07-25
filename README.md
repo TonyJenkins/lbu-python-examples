@@ -9,6 +9,9 @@ could obfuscate, but does aim to be _Pythonic_.
 This code sort of accompanies [_Yet Another Python Book_](https://www.tony-jenkins.org.uk/pybook), the
 source code for which is in [The Hungarian Phrasebook](https://github.com/TonyJenkins/hungarian_phrasebook).
 
+_Most of this code was completed with the aid of GitHub Copilot, mostly when it wasn't being insanely
+irritating by filling in totally inappropriate code!_
+
 ## Organisation
 
 The programs are arranged in directories by topic. The numbers in the directory names
