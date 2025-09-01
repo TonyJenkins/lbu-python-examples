@@ -1,0 +1,4 @@
+Poppleton United,1,Ossett Town,2
+Goole Rovers,1,Giggleswick,0
+Giggleswick,3,Sheffield City,4
+Poppleton United,2,Headingley FC,0

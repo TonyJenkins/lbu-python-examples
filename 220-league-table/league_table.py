@@ -68,7 +68,7 @@ def print_the_table(team_list):
 def make_the_league_table(results_file):
     teams = get_team_names(results_file)
     table = create_league(teams)
-    play_matches(results_file, table)
+    table = play_matches(results_file, table)
     print_the_table(table)
 
 
