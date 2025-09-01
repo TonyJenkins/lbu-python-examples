@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 class CaesarException(Exception):
     pass
 
@@ -9,16 +10,16 @@ from caesar import rot_string
 import sys
 
 
-FILE_OF_ALL_WORDS = 'words_alpha.txt'
+FILE_OF_ALL_WORDS = "words_alpha.txt"
 
 
 def clean_text(text):
     from string import punctuation
 
-    for c in punctuation + '\n' + '\t':
-        text = text.replace(c, ' ')
+    for c in punctuation + "\n" + "\t":
+        text = text.replace(c, " ")
 
-    return ' '.join(text.split())
+    return " ".join(text.split())
 
 
 def extract_words(text):
@@ -26,14 +27,13 @@ def extract_words(text):
 
 
 def load_dictionary_of_words(word_file=FILE_OF_ALL_WORDS):
-    with open(word_file, 'r') as w:
+    with open(word_file, "r") as w:
         words = [word.strip() for word in w.readlines()]
 
     return words
 
 
 def check_shifted_words(words, word_file=FILE_OF_ALL_WORDS):
-
     valid_words = load_dictionary_of_words(word_file)
 
     percent_real_words = {}
@@ -55,7 +55,6 @@ def check_shifted_words(words, word_file=FILE_OF_ALL_WORDS):
 
 
 def find_correct_shift(shifts_and_percents):
-
     best_shift = max(shifts_and_percents, key=shifts_and_percents.get)
 
     if shifts_and_percents[best_shift] > 0.95:
@@ -70,24 +69,26 @@ def display_original(message_text, established_shift):
 
 def crack_the_code(rotted_file):
     try:
-        with(open(rotted_file, 'r')) as shifted_file:
+        with open(rotted_file, "r") as shifted_file:
 
             shifted_text = shifted_file.read()
             shifted_words = extract_words(shifted_text)
 
-            shift_used = find_correct_shift(check_shifted_words(shifted_words, FILE_OF_ALL_WORDS))
+            shift_used = find_correct_shift(
+                check_shifted_words(shifted_words, FILE_OF_ALL_WORDS)
+            )
 
             display_original(shifted_text, shift_used)
 
     except CaesarException:
-        print('Cannot decrypt. Most likely not a Caesar Cypher at work here.')
+        print("Cannot decrypt. Most likely not a Caesar Cypher at work here.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         crack_the_code(sys.argv[1])
-    except IndexError:
-        print(f'Usage: {sys.argv[0]} <rotated_file>')
-    except FileNotFoundError:
-        print(f'No such file or directory: {sys.argv[1]}')
-
+    except (
+        IndexError,
+        FileNotFoundError,
+    ):
+        print(f"Usage: {sys.argv[0]} <file to crack>")

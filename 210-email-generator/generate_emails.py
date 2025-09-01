@@ -4,7 +4,7 @@ from random import randint
 import sys
 
 
-DOMAIN = 'leedsbeckett.ac.uk'
+DOMAIN = "leedsbeckett.ac.uk"
 
 
 def line_split(infile_line):
@@ -12,15 +12,15 @@ def line_split(infile_line):
 
 
 def find_capitals(s):
-    return ''.join([c if c.isupper() else '' for c in s])
+    return "".join([c if c.isupper() else "" for c in s])
 
 
 def to_initials(initials):
-    return '.'.join(initials.lower())
+    return ".".join(initials.lower())
 
 
 def four_random_digits():
-    rd = ''
+    rd = ""
 
     for _ in range(4):
         rd += str(randint(0, 9))
@@ -28,41 +28,42 @@ def four_random_digits():
     return rd
 
 
-def clean_surname(s):
-    s = s.lower().strip()
+def clean_surname(surname):
+    surname = surname.lower().strip()
 
-    return ''.join([c if c.isalpha() else '' for c in s])
+    return "".join([c if c.isalpha() else "" for c in surname])
 
 
-def build_email(name):
-
+def build_email(full_name):
     try:
-        surname, forenames = name.split(',')
+        surname, forenames = full_name.split(",")
     except ValueError:
-        surname, forenames = name, None
-    finally:
-        surname = clean_surname(surname)
-        if forenames:
-            initials = to_initials(find_capitals(forenames))
+        surname, forenames = full_name, None
 
-            return f'{initials}.{surname}{four_random_digits()}@{DOMAIN}'.lower()
-        else:
-            return f'{surname}{four_random_digits()}@{DOMAIN}'.lower()
-
+    surname = clean_surname(surname)
+    if forenames:
+        initials = to_initials(find_capitals(forenames))
+        return f"{initials}.{surname}{four_random_digits()}@{DOMAIN}".lower()
+    else:
+        return f"{surname}{four_random_digits()}@{DOMAIN}".lower()
 
 
+def generate_the_file_of_emails(file_with_list_of_users, output_file_name="emails.txt"):
+    with open(file_with_list_of_users, "r") as user_file, open(
+        output_file_name, "w"
+    ) as email_file:
+        for user_line in user_file.readlines():
+            user_id, name = line_split(user_line)
 
-if __name__ == '__main__':
+            email_file.write(f"{user_id} {build_email(name)}\n")
+
+
+if __name__ == "__main__":
 
     try:
-        with open(sys.argv[1], 'r') as infile, open('emails.txt', 'w') as outfile:
-            for line in infile.readlines():
-
-                user_id, name = line_split(line)
-
-                outfile.write(f'{user_id} {build_email(name)}\n')
+        generate_the_file_of_emails(sys.argv[1])
 
     except FileNotFoundError:
-        print('File not found')
+        print(f"{sys.argv[0]}: File not found")
     except IndexError:
-        print(f'{sys.argv[0]}: Missing CLA')
+        print(f"{sys.argv[0]}: Missing CLA")

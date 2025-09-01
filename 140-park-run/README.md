@@ -15,9 +15,9 @@ on a website.
 
 Automatic timing apparatus positioned around the park uses advanced computer vision techniques to read the numbers 
 on each runner's singlet as they pass, and record this along with the elapsed time. These times need to be 
-processed so that they can be poste on the website.
+processed so that they can be posted on the website.
 
-### The Task
+## The Task
 
 A program is required that will process the data stream from one of the timing devices to produce 
 some useful statistics. The chosen device is half way round the course, and is is known that every runner will
@@ -49,5 +49,5 @@ The required output is:
 * The slowest time recorded at this point, rendered in minutes and seconds.
 * The number of the runner recording the fastest time (or the first one to do so, if there are several).
 
-The apparatus is falible, especially if a runner's singlet is dirty, so there may
+The apparatus is fallible, especially if a runner's singlet is dirty, so there may
 be errors in the data.

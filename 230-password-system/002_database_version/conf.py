@@ -1,7 +1,7 @@
 #!/usr/bin/env/pytho3
 
-DATABASE_FILE = 'users.db'
+DATABASE_FILE = "users.db"
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

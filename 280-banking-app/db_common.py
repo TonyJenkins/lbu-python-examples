@@ -5,7 +5,6 @@ import sqlite3
 
 
 def connect(db_file=DATABASE_FILE):
-
     try:
         conn = sqlite3.connect(db_file)
         return conn

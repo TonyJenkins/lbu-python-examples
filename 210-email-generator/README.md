@@ -9,20 +9,21 @@ suitable test data. And that we need to deal with edge cases.
 
 In this folder, find:
 
-- `name_file_generator.py` - A (somewhat crufty, as usual) program to generatet 
-the input file.
+- `name_file_generator.py` - A (somewhat crufty, as usual) program to produce
+a random sample input file.
 - `generate_emails.py` - The program that does the generation.
 
 The generator program uses the `names` module from PyPi, so that will need
-to be available in order to run it.
+to be available in order to run it. This is easier than coding something by
+hand, and simpler than using more elaborate fake data generators.
 
 There is also:
 
 - `edge-cases.txt` - A few cases to test. These include names with spaces, hyphens,
-and so on. These can be run separately.
+and so on. These can be used as input separately.
 
 _Interestingly, this program works in the (surprisingly frequent) case that a
-student has only one name. Just saying._
+student has only one name. The real one doesn't. Just saying._
 
 ## Full Details
 
@@ -77,8 +78,7 @@ c5374186 l.sampson3346@poppleton.ac.uk
 ```
 
 The program should take a file in the first format, and produce a file in the 
-second. It is safe to assume thatevery line in the first file is formatted exactly as expected.
+second. It is safe to assume that every line in the first file is formatted exactly as expected.
 
 The program may ignore the (very remote) possibility of the program generating 
 the same email for two different students.
-

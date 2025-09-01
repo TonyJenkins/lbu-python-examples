@@ -38,7 +38,7 @@ like the most common. There is a special sort of dictionary for this. See these 
 ### Tuples
 
 Tuples are list-like, but the main difference is that the elements are not usually of the same type.
-This means that they are handy for gathering together related values to pass in to, or out of
+This means that they are handy for gathering together related values to pass in to, or out of,
 a function.
 
 - `format_records.py` - Neatly print a collection of scores for students, in descending order.

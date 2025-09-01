@@ -7,4 +7,4 @@ The user has 10 attempts to get the number correct. The program does not count
 guesses if the user has already guessed a number.
 
 _Note: There is a small amount of cunning in choosing the number, given that
-a sensbile user will adopt a "Binary Search" approach and start at 50!_
+a sensible user will adopt a "Binary Search" approach and start at 50!_

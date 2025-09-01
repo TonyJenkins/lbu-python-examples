@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-
 from db_common import connect, disconnect
 from sql_queries import DELETE_USER
 from utils import get_username
@@ -19,6 +18,5 @@ def delete_a_user():
     disconnect(conn)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     delete_a_user()
-
