@@ -109,6 +109,7 @@ def play_word_dull():
     show_banner()
 
     secret = choose_secret_word()
+    print(secret)
     guesses = 0
     victory = False
 
@@ -121,7 +122,7 @@ def play_word_dull():
             marking = mark_guess(guess, secret)
             print(colour_marks(marking, guess))
 
-            if guess == secret:
+            if guess.lower() == secret.lower():
                 show_endgame(guesses)
                 victory = True
                 break
