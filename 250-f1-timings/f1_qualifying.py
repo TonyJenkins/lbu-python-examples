@@ -31,8 +31,6 @@ def process_lap_times(drivers, lap_times_file=DEFAULT_LAP_TIMES_FILE):
             record_a_lap(drivers, code, float(time))
 
 
-
-
 def print_leaderboard(drivers):
     import tabulate
 
@@ -75,5 +73,4 @@ if __name__ == "__main__":
         try:
             run_qualifying()
         except FileNotFoundError:
-            print('No default file found.')
-
+            print("No default file found.")
