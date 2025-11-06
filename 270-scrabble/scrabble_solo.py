@@ -30,7 +30,7 @@ def play_solo_scrabble():
             best_word, best_score = the_letters.best_word()
             print(f"Play {best_word} to score {best_score}!")
         except ScrabbleError:
-            print('No possible words to play. Game over.')
+            print("No possible words to play. Game over.")
             break
 
         words_played.append(
