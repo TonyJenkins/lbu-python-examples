@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from rack import Rack
+from scrabble_exception import ScrabbleError
 
 
 def print_end_game(words_played, letters_left):
@@ -25,8 +26,12 @@ def play_solo_scrabble():
     while True:
         print(f"Current Rack: {the_letters}")
 
-        best_word, best_score = the_letters.best_word()
-        print(f"Play {best_word} to score {best_score}!")
+        try:
+            best_word, best_score = the_letters.best_word()
+            print(f"Play {best_word} to score {best_score}!")
+        except ScrabbleError:
+            print('No possible words to play. Game over.')
+            break
 
         words_played.append(
             [best_word, best_score],

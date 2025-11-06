@@ -4,6 +4,7 @@ from random import choice as pick
 from string import ascii_letters as letters
 
 from conf import SCRABBLE_WORD_LIST
+from scrabble_exception import ScrabbleError
 
 
 SCRABBLE_SCORES = {
@@ -107,7 +108,10 @@ def possible_words_from_rack(rack):
         if can_make_word_from_rack(rack, word.strip()):
             possible_words.append(word.strip())
 
-    return possible_words
+    if possible_words:
+        return possible_words
+    else:
+        raise ScrabbleError("No possible words")
 
 
 def letter_score(letter):
