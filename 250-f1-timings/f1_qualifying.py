@@ -31,6 +31,8 @@ def process_lap_times(drivers, lap_times_file=DEFAULT_LAP_TIMES_FILE):
             record_a_lap(drivers, code, float(time))
 
 
+
+
 def print_leaderboard(drivers):
     import tabulate
 
@@ -67,7 +69,11 @@ def run_qualifying(lap_times_file=DEFAULT_LAP_TIMES_FILE):
 if __name__ == "__main__":
     try:
         run_qualifying(sys.argv[1])
-    except IndexError:
-        run_qualifying()
     except FileNotFoundError:
         print(f'Cannot open "{sys.argv[1]}".', file=sys.stderr)
+    except IndexError:
+        try:
+            run_qualifying()
+        except FileNotFoundError:
+            print('No default file found.')
+
