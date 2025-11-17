@@ -64,7 +64,7 @@ def user_exists(username):
 def add_user_to_file(user_info):
     user_id, real_name, raw_password = user_info
 
-    if user_exists(id):
+    if user_exists(user_id):
         raise UserExistsError("User to add already exists")
 
     encrypted_password = encrypt(raw_password)
