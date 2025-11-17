@@ -5,7 +5,7 @@ from random import random, randint
 from xkcdpass import xkcd_password as xp
 
 
-from passwd_utils import PASSWORD_FILE, add_user_to_file
+from passwd_utils import PASSWORD_FILE, add_user_to_file, UserExistsError
 
 
 NUMBER_OF_USERS = 32
@@ -53,7 +53,7 @@ def generate_a_dummy_password_file(passwd_txt=PASSWORD_FILE):
             password = generate_password()
             try:
                 add_user_to_file((username, full_name, password))
-            except:
+            except UserExistsError:
                 pass
 
 
