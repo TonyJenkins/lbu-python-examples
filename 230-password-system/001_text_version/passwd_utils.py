@@ -106,8 +106,8 @@ def change_password(username, password):
     new_users = []
 
     for user in current_users:
-        id, real_name, _ = user
-        if id == username:
+        user_id, real_name, _ = user
+        if user_id == username:
             new_users.append(
                 (
                     username,
