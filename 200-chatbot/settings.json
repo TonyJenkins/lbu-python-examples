@@ -18,7 +18,7 @@
         "Paul",
         "Quinn",
         "Rita",
-        "Sam",
+        "Sam"
     ],
     "DefaultAnswers": [
         "Yes",
@@ -32,7 +32,7 @@
         "Please wait a moment while I check.",
         "I'm not sure. Would you like me to find out?",
         "I'm not sure. Would you like me to look it up?",
-        "I'm not sure. Would you like me to check?",
+        "I'm not sure. Would you like me to check?"
     ],
     "ExitWords": ["bye", "exit", "quit", "q", "help"],
     "Responses": [
@@ -47,7 +47,7 @@
             "gym": "The gym is located in the Student Union Building. It is open from 6am to 10pm.",
             "food": "The cafeteria in the Student Union Building is excellent for breakfast.",
             "study": "The Library is a great place to study. It is open from 8am to 10pm.",
-            "computer": "There are computers available in the Library and the Student Union Building.",
+            "computer": "There are computers available in the Library and the Student Union Building."
         }
-    ],
+    ]
 }
